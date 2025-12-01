@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,75 +10,261 @@
     <!-- Configuración para usar la fuente Inter -->
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
         body {
             font-family: 'Inter', sans-serif;
             background-color: #E5E5E5;
         }
+
         /* Colores Institucionales de Paraguay */
-        .color-rojo-py { background-color: #D52B1E; }
-        .color-azul-py { background-color: #0038A8; }
-        .text-rojo-py { color: #D52B1E; }
-        .text-azul-py { color: #0038A8; }
-        .border-rojo-py { border-color: #D52B1E; }
-        .border-azul-py { border-color: #0038A8; }
+        .color-rojo-py {
+            background-color: #D52B1E;
+        }
+
+        .color-azul-py {
+            background-color: #0038A8;
+        }
+
+        .text-rojo-py {
+            color: #D52B1E;
+        }
+
+        .text-azul-py {
+            color: #0038A8;
+        }
+
+        .border-rojo-py {
+            border-color: #D52B1E;
+        }
+
+        .border-azul-py {
+            border-color: #0038A8;
+        }
 
         /* Estilos base para íconos */
-        .icon-small { width: 1.25rem; height: 1.25rem; }
+        .icon-small {
+            width: 1.25rem;
+            height: 1.25rem;
+        }
 
         /* Animación para el mockup del teléfono */
         @keyframes slideUp {
-            from { transform: translateY(20px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
+            from {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
         }
+
         .animate-slide-up {
             animation: slideUp 0.5s ease-out forwards;
         }
 
         /* Animación del Mapa de Calor */
         @keyframes pulse-red {
-            0% { transform: scale(1); opacity: 0.8; }
-            50% { transform: scale(1.2); opacity: 0.4; }
-            100% { transform: scale(1); opacity: 0.8; }
+            0% {
+                transform: scale(1);
+                opacity: 0.8;
+            }
+
+            50% {
+                transform: scale(1.2);
+                opacity: 0.4;
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 0.8;
+            }
         }
+
         .heat-point {
             animation: pulse-red 2s infinite ease-in-out;
-            border-radius: 9999px; /* rounded-full */
-            filter: blur(8px); /* blur-md */
+            border-radius: 9999px;
+            /* rounded-full */
+            filter: blur(8px);
+            /* blur-md */
         }
-        
-        .heat-point-1 { animation-delay: 0s; }
-        .heat-point-2 { animation-delay: 0.5s; }
-        .heat-point-3 { animation-delay: 1s; }
 
+        .heat-point-1 {
+            animation-delay: 0s;
+        }
+
+        .heat-point-2 {
+            animation-delay: 0.5s;
+        }
+
+        .heat-point-3 {
+            animation-delay: 1s;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .slide-content {
+                padding: 1rem !important;
+            }
+
+            .slide-title {
+                font-size: 1.5rem !important;
+            }
+
+            .slide-subtitle {
+                font-size: 0.875rem !important;
+            }
+        }
+
+<style>
+
+/* --------------------------------------------- */
+/*      RESPONSIVE REAL PARA CELULARES           */
+/*      (sin modificar estética original)        */
+/* --------------------------------------------- */
+
+@media (max-width: 640px) {
+
+    /* Evitar que el contenedor principal quede tipo “carta” horizontal */
+    .aspect-video {
+        aspect-ratio: auto !important;
+        height: calc(100vh - 120px) !important;
+        max-height: none !important;
+    }
+
+    /* Padding del área principal */
+    #slide-container {
+        padding: 0.75rem !important;
+    }
+
+    /* Titulares */
+    .slide-title {
+        font-size: 1.35rem !important;
+        line-height: 1.3 !important;
+        padding-right: 0.5rem;
+    }
+
+    /* Subtítulos */
+    .slide-subtitle {
+        font-size: 0.85rem !important;
+    }
+
+    /* Grids muy grandes pasan a ser 1 columna */
+    .grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    /* Logo del header más chico */
+    header img,
+    .logo-muni {
+        height: 34px !important;
+    }
+
+    /* Mockups de celular */
+    .phone-mockup,
+    .device-mockup,
+    .mobile-app {
+        transform: scale(0.8) !important;
+        margin: 0 auto !important;
+    }
+
+    /* Tarjetas KPI */
+    .kpi-card {
+        padding: 0.75rem !important;
+    }
+    .kpi-card h3 {
+        font-size: 1.75rem !important;
+    }
+
+    /* Footer navegación */
+    #prev-button svg,
+    #next-button svg {
+        width: 22px !important;
+        height: 22px !important;
+    }
+
+    #page-counter {
+        font-size: 0.7rem !important;
+    }
+
+    /* Hacer que el contenedor interno no haga overflow lateral */
+    .overflow-auto, 
+    .overflow-hidden,
+    .w-full,
+    .h-full {
+        max-width: 100% !important;
+        overflow-x: hidden !important;
+    }
+
+    /* Evitar zoom forzado en iPhone al tocar inputs (si en alguna slide aparece) */
+    input, select, textarea {
+        font-size: 16px !important;
+    }
+
+    /* Ajuste especial del contenedor general */
+    body {
+        overflow-x: hidden !important;
+        overscroll-behavior-y: contain;
+    }
+
+    /* Logo + texto del header dentro del slide */
+    .logo-header-container {
+        flex-direction: row !important;
+        gap: 0.25rem !important;
+        margin-left: 0.25rem !important;
+    }
+}
+
+/* Extra para teléfonos muy chicos (<370px) */
+@media (max-width: 370px) {
+    .slide-title {
+        font-size: 1.15rem !important;
+    }
+    .slide-subtitle {
+        font-size: 0.75rem !important;
+    }
+
+    .mobile-app {
+        transform: scale(0.72) !important;
+    }
+    #page-counter {
+        font-size: 0.65rem !important;
+    }
+}
+
+</style>
+
+        
     </style>
 
     <!-- JS: Íconos y Lógica de Diapositivas -->
     <script>
         // URL del mapa de fondo (Solución al ReferenceError)
-        const mapBg = "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/OpenStreetMap_Asunci%C3%B3n.png/638px-OpenStreetMap_Asunci%C3%B3n.png";
+        const mapBg = "https://www.tedic.org/wp-content/uploads/2019/11/Screenshot_2019-11-10-OpenStreetMap.png";
 
-        // Función para inyectar íconos SVG de Lucide (Cambiado para mayor compatibilidad)
+        // Función para inyectar íconos SVG de Lucide (Corregidos los iconos de navegación)
         function lucideIcon(name, classes = 'icon-small') {
             const icons = {
                 'chevron-right': `<svg class="${classes}" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>`,
                 'chevron-left': `<svg class="${classes}" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>`,
                 'shield': `<svg class="${classes}" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67 0C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4-1 6-3 2 2 4 3 6 3a1 1 0 0 1 1 1z"/></svg>`,
                 'alert-triangle': `<svg class="${classes}" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>`,
-                'map-pin': `<svg class="${classes}" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 12m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"/><path d="M18.364 12.364a9 9 0 1 1 -12.728 0a9 9 0 0 1 12.728 0z"/></svg>`,
-                'camera': `<svg class="${classes}" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 4h.5a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-10a2 2 0 0 1 2 -2h.5"/><path d="M17 9v6a1 1 0 0 0 1 1h2a1 1 0 0 0 1 -1v-6a1 1 0 0 0 -1 -1h-2a1 1 0 0 0 -1 1z"/><path d="M9 13a3 3 0 1 0 0-6a3 3 0 0 0 0 6z"/></svg>`,
+                'map-pin': `<svg class="${classes}" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>`,
+                'camera': `<svg class="${classes}" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>`,
                 'menu': `<svg class="${classes}" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>`,
                 'file-text': `<svg class="${classes}" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><line x1="16" x2="8" y1="13" y2="13"/><line x1="16" x2="8" y1="17" y2="17"/><line x1="10" x2="8" y1="9" y2="9"/></svg>`,
-                'database': `<svg class="${classes}" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5"/><path d="M3 12a9 3 0 0 0 18 0"/><path d="M3 19a9 3 0 0 0 18 0"/></svg>`,
-                'server': `<svg class="${classes}" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" x2="6" y1="6" y2="6"/><line x1="18" x2="18" y1="6" y2="6"/></svg>`,
+                'database': `<svg class="${classes}" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5"/><path d="M3 12a9 3 0 0 0 18 0"/></svg>`,
+                'server': `<svg class="${classes}" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" x2="6.01" y1="6" y2="6"/><line x1="6" x2="6.01" y1="18" y2="18"/></svg>`,
                 'lock': `<svg class="${classes}" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>`,
-                'check-circle-2': `<svg class="${classes}" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm-2 10l2 2 4-4"/></svg>`,
-                'users': `<svg class="${classes}" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>`,
+                'check-circle-2': `<svg class="${classes}" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>`,
+                'users': `<svg class="${classes}" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>`,
                 'trending-up': `<svg class="${classes}" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>`,
                 'clock': `<svg class="${classes}" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>`,
                 'zap': `<svg class="${classes}" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>`,
-                'layers': `<svg class="${classes}" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1.761a1 1 0 0 0-.898.556L3.102 11.24a1 1 0 0 0 .898 1.444h15.996a1 1 0 0 0 .898-1.444L12.898 2.317A1 1 0 0 0 12 1.761z"/><path d="M3.5 12.5l8.5 4.5 8.5-4.5"/><path d="M3.5 17l8.5 4.5 8.5-4.5"/></svg>`,
+                'layers': `<svg class="${classes}" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>`,
                 'activity': `<svg class="${classes}" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>`,
-                'settings': `<svg class="${classes}" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v2a2 2 0 0 1-2 2H4a2 2 0 0 0-2 2v.44a2 2 0 0 1 2 2h2a2 2 0 0 0 2 2v2a2 2 0 0 1 2 2h.44a2 2 0 0 0 2-2v-2a2 2 0 0 1 2-2h2a2 2 0 0 0 2-2v-.44a2 2 0 0 1-2-2h-2a2 2 0 0 0-2-2V4a2 2 0 0 1-2-2z"/><circle cx="12" cy="12" r="3"/></svg>`,
+                'settings': `<svg class="${classes}" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>`,
                 'search': `<svg class="${classes}" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>`,
             };
             return icons[name] || '';
@@ -166,7 +353,7 @@
             }
 
             return `
-                <div class="mx-auto border-gray-800 bg-gray-800 border-[14px] rounded-[2.5rem] h-[500px] w-[280px] shadow-2xl flex flex-col relative overflow-hidden">
+                <div class="mx-auto border-gray-800 bg-gray-800 border-[14px] rounded-[2.5rem] h-[500px] w-[280px] shadow-2xl flex flex-col relative overflow-hidden md:h-[500px] md:w-[280px] h-[400px] w-[224px]">
                     <div class="w-full bg-slate-900 h-6 absolute top-0 left-0 z-20 rounded-t-[1.5rem] flex justify-center">
                         <div class="h-4 w-32 bg-black rounded-b-xl"></div>
                     </div>
@@ -176,7 +363,7 @@
         }
 
         let currentSlide = 0;
-        const totalSlides = 15; // Aumentado a 15
+        const totalSlides = 15;
         const slides = [
             // SLIDE 0: PORTADA
             `
@@ -184,16 +371,16 @@
                     <div class="absolute inset-0 bg-gradient-to-r from-white via-white to-transparent z-10"></div>
                     <div class="absolute inset-0 bg-cover bg-right z-0 opacity-20 filter grayscale" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/e/e0/Palacio_de_los_L%C3%B3pez_%282017%29.jpg');"></div>
                     
-                    <div class="z-20 text-center max-w-4xl animate-fade-in space-y-2">
+                    <div class="z-20 text-center max-w-4xl animate-fade-in space-y-2 px-4">
                         <div class="inline-block px-4 py-1 border border-azul-py text-azul-py rounded text-xs font-bold uppercase tracking-[0.2em] mb-4 bg-blue-50 shadow-sm">
                             DOCUMENTO EJECUTIVO DE PROPUESTA
                         </div>
-                        <h1 class="text-7xl font-black text-azul-py leading-tight">
+                        <h1 class="text-4xl md:text-7xl font-black text-azul-py leading-tight">
                             SISTEMA INTEGRAL<br/>
                             <span class="text-rojo-py">ASU-ALERTA</span>
                         </h1>
-                        <p class="text-xl text-slate-600 font-medium pt-4 max-w-2xl mx-auto border-t border-slate-300 mt-6">
-                            Modernización, Transparencia y Eficiencia en la Respuesta Ciudadana 2025
+                        <p class="text-sm md:text-xl text-slate-600 font-medium pt-4 max-w-2xl mx-auto border-t border-slate-300 mt-6">
+                            Modernización, Transparencia y Eficiencia en la Respuesta Ciudadana 
                         </p>
                     </div>
                     
@@ -202,82 +389,82 @@
             `,
             // SLIDE 1: DIAGNÓSTICO PROFUNDIZADO
             `
-                <div class="w-full h-full p-16 flex flex-col justify-center bg-slate-50">
-                    <h2 class="text-4xl font-bold text-azul-py mb-4">1. El Desafío de la Ciudadanía</h2>
-                    <p class="text-lg text-slate-600 mb-10 max-w-3xl">
+                <div class="w-full h-full p-4 md:p-16 flex flex-col justify-center bg-slate-50 overflow-auto">
+                    <h2 class="text-2xl md:text-4xl font-bold text-azul-py mb-4">1. El Desafío de la Ciudadanía</h2>
+                    <p class="text-sm md:text-lg text-slate-600 mb-6 md:mb-10 max-w-3xl">
                         Los sistemas actuales son reactivos, carecen de trazabilidad y generan una alta fricción, lo que se traduce en una percepción negativa del servicio municipal.
                     </p>
                     
-                    <div class="grid grid-cols-3 gap-8">
-                        <div class="bg-white p-6 rounded-xl shadow-lg border-t-4 border-rojo-py">
-                            <h3 class="font-black text-4xl text-rojo-py mb-2">35%</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8">
+                        <div class="bg-white p-4 md:p-6 rounded-xl shadow-lg border-t-4 border-rojo-py">
+                            <h3 class="font-black text-3xl md:text-4xl text-rojo-py mb-2">35%</h3>
                             <p class="text-xs font-bold text-slate-500 uppercase">Reclamos Duplicados</p>
-                            <p class="text-sm text-slate-700 mt-1">Debido a la falta de un registro centralizado.</p>
+                            <p class="text-xs md:text-sm text-slate-700 mt-1">Debido a la falta de un registro centralizado.</p>
                         </div>
-                        <div class="bg-white p-6 rounded-xl shadow-lg border-t-4 border-azul-py">
-                            <h3 class="font-black text-4xl text-azul-py mb-2">48 Hrs</h3>
+                        <div class="bg-white p-4 md:p-6 rounded-xl shadow-lg border-t-4 border-azul-py">
+                            <h3 class="font-black text-3xl md:text-4xl text-azul-py mb-2">48 Hrs</h3>
                             <p class="text-xs font-bold text-slate-500 uppercase">Tiempo Medio de Respuesta</p>
-                            <p class="text-sm text-slate-700 mt-1">Desde la recepción hasta la asignación de cuadrilla.</p>
+                            <p class="text-xs md:text-sm text-slate-700 mt-1">Desde la recepción hasta la asignación de cuadrilla.</p>
                         </div>
-                        <div class="bg-white p-6 rounded-xl shadow-lg border-t-4 border-slate-800">
-                            <h3 class="font-black text-4xl text-slate-800 mb-2">80%</h3>
+                        <div class="bg-white p-4 md:p-6 rounded-xl shadow-lg border-t-4 border-slate-800">
+                            <h3 class="font-black text-3xl md:text-4xl text-slate-800 mb-2">80%</h3>
                             <p class="text-xs font-bold text-slate-500 uppercase">Falta de Feedback</p>
-                            <p class="text-sm text-slate-700 mt-1">El ciudadano no sabe el estado de su reporte.</p>
+                            <p class="text-xs md:text-sm text-slate-700 mt-1">El ciudadano no sabe el estado de su reporte.</p>
                         </div>
                     </div>
                 </div>
             `,
             // SLIDE 2: LA SOLUCIÓN INTEGRAL
             `
-                <div class="w-full h-full p-16 flex items-center bg-white">
-                    <div class="grid grid-cols-2 gap-12 w-full">
-                        <div class="space-y-6">
-                            <h2 class="text-4xl font-bold text-azul-py mb-4">2. Plataforma ASU-ALERTA</h2>
-                            <p class="text-lg text-slate-600 leading-relaxed">
+                <div class="w-full h-full p-4 md:p-16 flex items-center bg-white overflow-auto">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12 w-full">
+                        <div class="space-y-4 md:space-y-6">
+                            <h2 class="text-2xl md:text-4xl font-bold text-azul-py mb-4">2. Plataforma ASU-ALERTA</h2>
+                            <p class="text-sm md:text-lg text-slate-600 leading-relaxed">
                                 Un ecosistema digital completo que une al ciudadano, la operación en campo y el control de la Intendencia en tiempo real.
                             </p>
                             
-                            <ul class="space-y-4 pt-4 border-t border-slate-200">
-                                <li class="flex items-start gap-4">
-                                    <span class="text-rojo-py text-3xl font-black">1.</span>
-                                    <div><p class="font-bold text-slate-800">Módulo Ciudadano:</p><p class="text-sm text-slate-600">Reporte vía App/Web (PWA).</p></div>
+                            <ul class="space-y-3 md:space-y-4 pt-4 border-t border-slate-200">
+                                <li class="flex items-start gap-3 md:gap-4">
+                                    <span class="text-rojo-py text-2xl md:text-3xl font-black">1.</span>
+                                    <div><p class="font-bold text-slate-800 text-sm md:text-base">Módulo Ciudadano:</p><p class="text-xs md:text-sm text-slate-600">Reporte vía App/Web (PWA).</p></div>
                                 </li>
-                                <li class="flex items-start gap-4">
-                                    <span class="text-rojo-py text-3xl font-black">2.</span>
-                                    <div><p class="font-bold text-slate-800">Módulo Operativo:</p><p class="text-sm text-slate-600">Asignación, ejecución y cierre por cuadrillas (Mobile).</p></div>
+                                <li class="flex items-start gap-3 md:gap-4">
+                                    <span class="text-rojo-py text-2xl md:text-3xl font-black">2.</span>
+                                    <div><p class="font-bold text-slate-800 text-sm md:text-base">Módulo Operativo:</p><p class="text-xs md:text-sm text-slate-600">Asignación, ejecución y cierre por cuadrillas (Mobile).</p></div>
                                 </li>
-                                <li class="flex items-start gap-4">
-                                    <span class="text-rojo-py text-3xl font-black">3.</span>
-                                    <div><p class="font-bold text-slate-800">Módulo Control:</p><p class="text-sm text-slate-600">Dashboard de seguimiento y Business Intelligence.</p></div>
+                                <li class="flex items-start gap-3 md:gap-4">
+                                    <span class="text-rojo-py text-2xl md:text-3xl font-black">3.</span>
+                                    <div><p class="font-bold text-slate-800 text-sm md:text-base">Módulo Control:</p><p class="text-xs md:text-sm text-slate-600">Dashboard de seguimiento y Business Intelligence.</p></div>
                                 </li>
                             </ul>
                         </div>
-                        <div class="flex justify-center items-center">
-                            ${lucideIcon('layers', 'w-48 h-48 text-azul-py opacity-70')}
+                        <div class="hidden md:flex justify-center items-center">
+                            ${lucideIcon('layers', 'w-32 h-32 md:w-48 md:h-48 text-azul-py opacity-70')}
                         </div>
                     </div>
                 </div>
             `,
             // SLIDE 3: APP CIUDADANA (HOME MOCKUP)
             `
-                <div class="w-full h-full bg-[#f8fafc] flex relative overflow-hidden">
-                    <div class="w-1/2 p-16 flex flex-col justify-center z-10">
-                        <h2 class="text-4xl font-bold text-azul-py mb-6 leading-tight">
+                <div class="w-full h-full bg-[#f8fafc] flex flex-col md:flex-row relative overflow-auto">
+                    <div class="w-full md:w-1/2 p-4 md:p-16 flex flex-col justify-center z-10">
+                        <h2 class="text-2xl md:text-4xl font-bold text-azul-py mb-4 md:mb-6 leading-tight">
                             3. Interfaz Ciudadana: Reportar en 3 Clics
                         </h2>
-                        <p class="text-slate-600 mb-8 text-lg">
+                        <p class="text-slate-600 mb-4 md:mb-8 text-sm md:text-lg">
                             Diseño intuitivo y accesible (PWA) para garantizar la máxima adopción, incluso en dispositivos de baja gama.
                         </p>
-                        <div class="space-y-3">
-                            <p class="font-bold text-slate-800 flex items-center gap-2">${lucideIcon('map-pin', 'w-5 h-5 text-rojo-py')} Precisión GPS.</p>
-                            <p class="font-bold text-slate-800 flex items-center gap-2">${lucideIcon('camera', 'w-5 h-5 text-rojo-py')} Validación con Foto y Descripción.</p>
-                            <p class="font-bold text-slate-800 flex items-center gap-2">${lucideIcon('trending-up', 'w-5 h-5 text-rojo-py')} Trazabilidad en tiempo real.</p>
+                        <div class="space-y-2 md:space-y-3">
+                            <p class="font-bold text-slate-800 flex items-center gap-2 text-sm md:text-base">${lucideIcon('map-pin', 'w-4 h-4 md:w-5 md:h-5 text-rojo-py')} Precisión GPS.</p>
+                            <p class="font-bold text-slate-800 flex items-center gap-2 text-sm md:text-base">${lucideIcon('camera', 'w-4 h-4 md:w-5 md:h-5 text-rojo-py')} Validación con Foto y Descripción.</p>
+                            <p class="font-bold text-slate-800 flex items-center gap-2 text-sm md:text-base">${lucideIcon('trending-up', 'w-4 h-4 md:w-5 md:h-5 text-rojo-py')} Trazabilidad en tiempo real.</p>
                         </div>
                     </div>
                     
-                    <div class="w-1/2 color-azul-py relative flex items-center justify-center overflow-visible">
+                    <div class="w-full md:w-1/2 color-azul-py relative flex items-center justify-center overflow-visible py-8 md:py-0">
                         <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
-                        <div class="transform rotate-3 shadow-2xl z-10">
+                        <div class="transform rotate-0 md:rotate-3 shadow-2xl z-10">
                             ${MobileAppMockup('home')}
                         </div>
                     </div>
@@ -285,131 +472,127 @@
             `,
             // SLIDE 4: FLUJO DEL REPORTE CIUDADANO
             `
-                <div class="w-full h-full p-16 flex items-center bg-white">
-                    <div class="grid grid-cols-2 gap-12 w-full">
-                        <div class="flex justify-center items-center">
-                            <div class="transform -rotate-3 shadow-2xl z-10">
+                <div class="w-full h-full p-4 md:p-16 flex items-center bg-white overflow-auto">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12 w-full">
+                        <div class="flex justify-center items-center order-2 md:order-1">
+                            <div class="transform rotate-0 md:-rotate-3 shadow-2xl z-10">
                                 ${MobileAppMockup('flow')}
                             </div>
                         </div>
-                        <div class="space-y-8">
-                            <h2 class="text-4xl font-bold text-azul-py mb-4">4. Flujo de 4 Pasos Garantizado</h2>
+                        <div class="space-y-4 md:space-y-8 order-1 md:order-2">
+                            <h2 class="text-2xl md:text-4xl font-bold text-azul-py mb-4">4. Flujo de 4 Pasos Garantizado</h2>
                             
-                            <ol class="space-y-4 font-medium">
-                                <li class="p-3 bg-red-50 border-l-4 border-rojo-py rounded flex items-center gap-4">
-                                    <span class="text-2xl font-black text-rojo-py">1.</span>
-                                    Ubicación (GPS o Manual).
+                            <ol class="space-y-3 md:space-y-4 font-medium">
+                                <li class="p-3 bg-red-50 border-l-4 border-rojo-py rounded flex items-center gap-3 md:gap-4">
+                                    <span class="text-xl md:text-2xl font-black text-rojo-py">1.</span>
+                                    <span class="text-sm md:text-base">Ubicación (GPS o Manual).</span>
                                 </li>
-                                <li class="p-3 bg-blue-50 border-l-4 border-azul-py rounded flex items-center gap-4">
-                                    <span class="text-2xl font-black text-azul-py">2.</span>
-                                    Clasificación (Bache, Basura, etc.).
+                                <li class="p-3 bg-blue-50 border-l-4 border-azul-py rounded flex items-center gap-3 md:gap-4">
+                                    <span class="text-xl md:text-2xl font-black text-azul-py">2.</span>
+                                    <span class="text-sm md:text-base">Clasificación (Bache, Basura, etc.).</span>
                                 </li>
-                                <li class="p-3 bg-slate-100 border-l-4 border-slate-400 rounded flex items-center gap-4">
-                                    <span class="text-2xl font-black text-slate-600">3.</span>
-                                    Evidencia (Foto obligatoria).
+                                <li class="p-3 bg-slate-100 border-l-4 border-slate-400 rounded flex items-center gap-3 md:gap-4">
+                                    <span class="text-xl md:text-2xl font-black text-slate-600">3.</span>
+                                    <span class="text-sm md:text-base">Evidencia (Foto obligatoria).</span>
                                 </li>
-                                <li class="p-3 bg-slate-100 border-l-4 border-slate-400 rounded flex items-center gap-4">
-                                    <span class="text-2xl font-black text-slate-600">4.</span>
-                                    Confirmación y N° de Trazabilidad.
+                                <li class="p-3 bg-slate-100 border-l-4 border-slate-400 rounded flex items-center gap-3 md:gap-4">
+                                    <span class="text-xl md:text-2xl font-black text-slate-600">4.</span>
+                                    <span class="text-sm md:text-base">Confirmación y N° de Trazabilidad.</span>
                                 </li>
                             </ol>
-                            <p class="text-sm text-slate-500 italic">El reporte exitoso genera un código único para el ciudadano (ej. #ASU-10924).</p>
+                            <p class="text-xs md:text-sm text-slate-500 italic">El reporte exitoso genera un código único para el ciudadano (ej. #ASU-10924).</p>
                         </div>
                     </div>
                 </div>
             `,
             // SLIDE 5: MÓDULO OPERATIVO (CUADRILLAS)
             `
-                <div class="w-full h-full p-16 bg-slate-100 flex flex-col justify-center">
-                    <h2 class="text-4xl font-bold text-azul-py mb-4">5. Módulo Operativo (Field Crew)</h2>
-                    <p class="text-lg text-slate-600 mb-10 max-w-4xl">
+                <div class="w-full h-full p-4 md:p-16 bg-slate-100 flex flex-col justify-center overflow-auto">
+                    <h2 class="text-2xl md:text-4xl font-bold text-azul-py mb-4">5. Módulo Operativo (Field Crew)</h2>
+                    <p class="text-sm md:text-lg text-slate-600 mb-6 md:mb-10 max-w-4xl">
                         Herramienta clave para la Dirección de Obras. Elimina el papel y la comunicación por radio, centralizando la asignación de tareas.
                     </p>
                     
-                    <div class="grid grid-cols-4 gap-6">
-                        <div class="bg-white p-5 rounded-xl shadow border-l-4 border-rojo-py">
-                            <h3 class="font-bold text-lg text-slate-800">Ruteo Inteligente</h3>
-                            <p class="text-sm text-slate-600 mt-1">Órdenes de trabajo optimizadas por ubicación.</p>
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-6">
+                        <div class="bg-white p-4 md:p-5 rounded-xl shadow border-l-4 border-rojo-py">
+                            <h3 class="font-bold text-base md:text-lg text-slate-800">Ruteo Inteligente</h3>
+                            <p class="text-xs md:text-sm text-slate-600 mt-1">Órdenes de trabajo optimizadas por ubicación.</p>
                         </div>
-                        <div class="bg-white p-5 rounded-xl shadow border-l-4 border-azul-py">
-                            <h3 class="font-bold text-lg text-slate-800">Evidencia de Cierre</h3>
-                            <p class="text-sm text-slate-600 mt-1">Foto obligatoria de "antes y después" para cerrar el caso.</p>
+                        <div class="bg-white p-4 md:p-5 rounded-xl shadow border-l-4 border-azul-py">
+                            <h3 class="font-bold text-base md:text-lg text-slate-800">Evidencia de Cierre</h3>
+                            <p class="text-xs md:text-sm text-slate-600 mt-1">Foto obligatoria de "antes y después" para cerrar el caso.</p>
                         </div>
-                        <div class="bg-white p-5 rounded-xl shadow border-l-4 border-slate-800">
-                            <h3 class="font-bold text-lg text-slate-800">Tiempos Registrados</h3>
-                            <p class="text-sm text-slate-600 mt-1">Registro de inicio/fin de trabajo vía GPS/Timestamp.</p>
+                        <div class="bg-white p-4 md:p-5 rounded-xl shadow border-l-4 border-slate-800">
+                            <h3 class="font-bold text-base md:text-lg text-slate-800">Tiempos Registrados</h3>
+                            <p class="text-xs md:text-sm text-slate-600 mt-1">Registro de inicio/fin de trabajo vía GPS/Timestamp.</p>
                         </div>
-                        <div class="bg-white p-5 rounded-xl shadow border-l-4 border-green-600">
-                            <h3 class="font-bold text-lg text-slate-800">Offline Ready</h3>
-                            <p class="text-sm text-slate-600 mt-1">Permite trabajar sin conexión a internet en campo.</p>
+                        <div class="bg-white p-4 md:p-5 rounded-xl shadow border-l-4 border-green-600">
+                            <h3 class="font-bold text-base md:text-lg text-slate-800">Offline Ready</h3>
+                            <p class="text-xs md:text-sm text-slate-600 mt-1">Permite trabajar sin conexión a internet en campo.</p>
                         </div>
                     </div>
                 </div>
             `,
             // SLIDE 6: DASHBOARD CENTRAL (ANIMADO)
             `
-                <div class="w-full h-full p-12 bg-gray-900 flex flex-col">
-                    <div class="flex justify-between items-end mb-6 px-4">
-                        <h2 class="text-3xl font-bold text-white">6. Dashboard de Control y Mando</h2>
-                        <span class="text-sm text-yellow-300 font-medium bg-black/40 px-3 py-1 rounded border border-yellow-300/50 shadow-sm flex items-center gap-2">${lucideIcon('activity', 'w-4 h-4')} Seguimiento en VIVO</span>
+                <div class="w-full h-full p-4 md:p-12 bg-gray-900 flex flex-col overflow-auto">
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-4 md:mb-6 px-2 md:px-4 gap-2">
+                        <h2 class="text-xl md:text-3xl font-bold text-white">6. Dashboard de Control y Mando</h2>
+                        <span class="text-xs md:text-sm text-yellow-300 font-medium bg-black/40 px-3 py-1 rounded border border-yellow-300/50 shadow-sm flex items-center gap-2">${lucideIcon('activity', 'w-3 h-3 md:w-4 md:h-4')} Seguimiento en VIVO</span>
                     </div>
                     
                     <!-- Contenedor del Dashboard Simulado -->
                     <div class="flex-1 bg-white rounded-lg shadow-xl border border-slate-300 p-2 flex flex-col overflow-hidden">
                         <!-- Barra Superior Dashboard -->
-                        <div class="h-10 bg-[#1a202c] flex items-center px-4 justify-between">
-                            <div class="text-white font-bold text-sm tracking-wide">ASU<span class="text-rojo-py">ALERTA</span> | CENTRO DE INTELIGENCIA</div>
+                        <div class="h-8 md:h-10 bg-[#1a202c] flex items-center px-2 md:px-4 justify-between">
+                            <div class="text-white font-bold text-xs md:text-sm tracking-wide">ASU<span class="text-rojo-py">ALERTA</span> | CENTRO DE INTELIGENCIA</div>
                             <div class="flex gap-2">
                                 <div class="h-2 w-2 rounded-full bg-green-500 animate-pulse"></div>
-                                <span class="text-[10px] text-slate-400">SISTEMA ONLINE</span>
+                                <span class="text-[8px] md:text-[10px] text-slate-400 hidden md:inline">SISTEMA ONLINE</span>
                             </div>
                         </div>
 
                         <!-- Contenido Dashboard -->
-                        <div class="flex-1 p-6 bg-slate-50 grid grid-cols-12 gap-6">
+                        <div class="flex-1 p-2 md:p-6 bg-slate-50 grid grid-cols-2 md:grid-cols-12 gap-2 md:gap-6 overflow-auto">
                             <!-- KPI Cards (Más Métricas) -->
-                            <div class="col-span-3 bg-white p-4 rounded shadow border border-slate-200 border-l-4 border-l-azul-py">
-                                <p class="text-xs font-bold text-slate-400 uppercase">Reclamos Activos Totales</p>
-                                <p class="text-4xl font-bold text-slate-800">1,894</p>
-                                <p class="text-[10px] text-green-600 font-bold flex items-center gap-1">${lucideIcon('trending-up', 'w-3 h-3')} 5.2% vs. Semana pasada</p>
+                            <div class="col-span-1 md:col-span-3 bg-white p-3 md:p-4 rounded shadow border border-slate-200 border-l-4 border-l-azul-py">
+                                <p class="text-[10px] md:text-xs font-bold text-slate-400 uppercase">Reclamos Activos</p>
+                                <p class="text-2xl md:text-4xl font-bold text-slate-800">1,894</p>
+                                <p class="text-[8px] md:text-[10px] text-green-600 font-bold flex items-center gap-1">${lucideIcon('trending-up', 'w-2 h-2 md:w-3 md:h-3')} 5.2% vs. Sem. pasada</p>
                             </div>
-                            <div class="col-span-3 bg-white p-4 rounded shadow border border-slate-200 border-l-4 border-l-rojo-py">
-                                <p class="text-xs font-bold text-slate-400 uppercase">Backlog sin Asignar</p>
-                                <p class="text-4xl font-bold text-rojo-py">345</p>
-                                <p class="text-[10px] text-red-600 font-bold flex items-center gap-1">${lucideIcon('alert-triangle', 'w-3 h-3')} Mayor a 72 Hrs</p>
+                            <div class="col-span-1 md:col-span-3 bg-white p-3 md:p-4 rounded shadow border border-slate-200 border-l-4 border-l-rojo-py">
+                                <p class="text-[10px] md:text-xs font-bold text-slate-400 uppercase">Sin Asignar</p>
+                                <p class="text-2xl md:text-4xl font-bold text-rojo-py">345</p>
+                                <p class="text-[8px] md:text-[10px] text-red-600 font-bold flex items-center gap-1">${lucideIcon('alert-triangle', 'w-2 h-2 md:w-3 md:h-3')} Mayor a 72 Hrs</p>
                             </div>
-                            <div class="col-span-3 bg-white p-4 rounded shadow border border-slate-200 border-l-4 border-l-green-600">
-                                <p class="text-xs font-bold text-slate-400 uppercase">Tiempo Promedio (SLA)</p>
-                                <p class="text-4xl font-bold text-slate-800 flex items-center gap-1">14.5<span class="text-base text-slate-500">hrs</span></p>
-                                <p class="text-[10px] text-slate-400 font-bold">Meta: 12 Hrs</p>
+                            <div class="col-span-1 md:col-span-3 bg-white p-3 md:p-4 rounded shadow border border-slate-200 border-l-4 border-l-green-600">
+                                <p class="text-[10px] md:text-xs font-bold text-slate-400 uppercase">Tiempo Promedio</p>
+                                <p class="text-2xl md:text-4xl font-bold text-slate-800 flex items-center gap-1">14.5<span class="text-sm md:text-base text-slate-500">hrs</span></p>
+                                <p class="text-[8px] md:text-[10px] text-slate-400 font-bold">Meta: 12 Hrs</p>
                             </div>
-                            <div class="col-span-3 bg-white p-4 rounded shadow border border-slate-200 border-l-4 border-l-orange-500">
-                                <p class="text-xs font-bold text-slate-400 uppercase">Eficiencia de Cierre (Mes)</p>
-                                <p class="text-4xl font-bold text-slate-800">92%</p>
-                                <p class="text-[10px] text-orange-500 font-bold">45 min de Desviación</p>
+                            <div class="col-span-1 md:col-span-3 bg-white p-3 md:p-4 rounded shadow border border-slate-200 border-l-4 border-l-orange-500">
+                                <p class="text-[10px] md:text-xs font-bold text-slate-400 uppercase">Eficiencia</p>
+                                <p class="text-2xl md:text-4xl font-bold text-slate-800">92%</p>
+                                <p class="text-[8px] md:text-[10px] text-orange-500 font-bold">45 min Desv.</p>
                             </div>
 
                             <!-- Gráfica y Mapa ANIMADO -->
-                            <div class="col-span-8 bg-white p-4 rounded shadow border border-slate-200 h-64 relative overflow-hidden">
-                                <div class="absolute top-4 left-4 z-10 bg-white/90 px-3 py-1 text-xs font-bold shadow text-azul-py">MAPA DE CALOR: ZONAS CRÍTICAS DE DRENAJE</div>
+                            <div class="col-span-2 md:col-span-8 bg-white p-2 md:p-4 rounded shadow border border-slate-200 h-48 md:h-64 relative overflow-hidden">
+                                <div class="absolute top-2 md:top-4 left-2 md:left-4 z-10 bg-white/90 px-2 md:px-3 py-1 text-[10px] md:text-xs font-bold shadow text-azul-py">MAPA DE CALOR</div>
                                 <div class="w-full h-full bg-cover bg-center grayscale opacity-60" style="background-image: url('${mapBg}');"></div>
                                 
                                 <!-- Puntos de calor animados -->
-                                <div class="absolute bg-red-600 heat-point heat-point-1" style="top: 60%; left: 45%; width: 24px; height: 24px;"></div>
-                                <div class="absolute bg-orange-500 heat-point heat-point-2" style="top: 30%; left: 70%; width: 20px; height: 20px;"></div>
-                                <div class="absolute bg-red-700 heat-point heat-point-3" style="top: 75%; left: 20%; width: 30px; height: 30px;"></div>
-                                
-                                <div class="absolute bottom-4 right-4 bg-white/80 p-1 rounded text-[10px] text-slate-600">
-                                    <span class="font-bold">Leyenda:</span> <span class="text-red-600">Alta Densidad</span> | <span class="text-orange-500">Media</span>
-                                </div>
+                                <div class="absolute bg-red-600 heat-point heat-point-1" style="top: 60%; left: 45%; width: 16px; height: 16px;"></div>
+                                <div class="absolute bg-orange-500 heat-point heat-point-2" style="top: 30%; left: 70%; width: 14px; height: 14px;"></div>
+                                <div class="absolute bg-red-700 heat-point heat-point-3" style="top: 75%; left: 20%; width: 20px; height: 20px;"></div>
                             </div>
                             
                             <!-- Tabla de Desempeño por Cuadrilla -->
-                            <div class="col-span-4 bg-white p-4 rounded shadow border border-slate-200 flex flex-col gap-2">
-                                <h4 class="text-xs font-bold text-slate-600 uppercase mb-2">Desempeño de Cuadrillas (Top 3)</h4>
-                                <table class="w-full text-xs">
+                            <div class="col-span-2 md:col-span-4 bg-white p-2 md:p-4 rounded shadow border border-slate-200 flex flex-col gap-2">
+                                <h4 class="text-[10px] md:text-xs font-bold text-slate-600 uppercase mb-2">Top 3 Cuadrillas</h4>
+                                <table class="w-full text-[10px] md:text-xs">
                                     <thead class="text-slate-500">
-                                        <tr><th class="font-medium text-left">Equipo</th><th class="font-medium">Resueltos</th><th class="font-medium">Promedio</th></tr>
+                                        <tr><th class="font-medium text-left">Equipo</th><th class="font-medium">Res.</th><th class="font-medium">Prom.</th></tr>
                                     </thead>
                                     <tbody>
                                         <tr class="border-b border-slate-100"><td class="font-bold">Este #1</td><td>125</td><td class="text-green-600">8.1h</td></tr>
@@ -424,180 +607,180 @@
             `,
             // SLIDE 7: KPI: TIEMPO DE RESPUESTA
             `
-                <div class="w-full h-full p-16 flex flex-col justify-center bg-white">
-                    <h2 class="text-4xl font-bold text-azul-py mb-4">7. Métrica Clave: Reducción del TRC</h2>
-                    <p class="text-lg text-slate-600 mb-10 max-w-4xl">
+                <div class="w-full h-full p-4 md:p-16 flex flex-col justify-center bg-white overflow-auto">
+                    <h2 class="text-2xl md:text-4xl font-bold text-azul-py mb-4">7. Métrica Clave: Reducción del TRC</h2>
+                    <p class="text-sm md:text-lg text-slate-600 mb-6 md:mb-10 max-w-4xl">
                         El objetivo primordial del sistema es reducir el **Tiempo de Respuesta al Ciudadano (TRC)** a menos de 12 horas para reclamos no urgentes.
                     </p>
 
-                    <div class="grid grid-cols-3 gap-8 text-center">
-                        <div class="p-6 bg-slate-50 rounded-xl border border-slate-200">
-                            <p class="text-xs font-bold text-slate-500 uppercase">Estado Inicial (TRC)</p>
-                            <span class="text-7xl font-black text-rojo-py my-4 block">28 H</span>
-                            <p class="text-sm text-slate-600">Promedio de gestión y resolución.</p>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 text-center">
+                        <div class="p-4 md:p-6 bg-slate-50 rounded-xl border border-slate-200">
+                            <p class="text-[10px] md:text-xs font-bold text-slate-500 uppercase">Estado Inicial (TRC)</p>
+                            <span class="text-5xl md:text-7xl font-black text-rojo-py my-2 md:my-4 block">28 H</span>
+                            <p class="text-xs md:text-sm text-slate-600">Promedio de gestión y resolución.</p>
                         </div>
-                        <div class="p-6 bg-slate-50 rounded-xl border border-slate-200">
-                            <p class="text-xs font-bold text-slate-500 uppercase">Meta (3 Meses)</p>
-                            <span class="text-7xl font-black text-orange-500 my-4 block">18 H</span>
-                            <p class="text-sm text-slate-600">Optimización de procesos internos.</p>
+                        <div class="p-4 md:p-6 bg-slate-50 rounded-xl border border-slate-200">
+                            <p class="text-[10px] md:text-xs font-bold text-slate-500 uppercase">Meta (3 Meses)</p>
+                            <span class="text-5xl md:text-7xl font-black text-orange-500 my-2 md:my-4 block">18 H</span>
+                            <p class="text-xs md:text-sm text-slate-600">Optimización de procesos internos.</p>
                         </div>
-                        <div class="p-6 color-azul-py rounded-xl border-4 border-blue-200 text-white shadow-xl">
-                            <p class="text-xs font-bold text-blue-200 uppercase">Objetivo Final (TRC)</p>
-                            <span class="text-7xl font-black my-4 block">8 H</span>
-                            <p class="text-sm text-blue-200">Eficiencia de clase mundial.</p>
+                        <div class="p-4 md:p-6 color-azul-py rounded-xl border-4 border-blue-200 text-white shadow-xl">
+                            <p class="text-[10px] md:text-xs font-bold text-blue-200 uppercase">Objetivo Final (TRC)</p>
+                            <span class="text-5xl md:text-7xl font-black my-2 md:my-4 block">8 H</span>
+                            <p class="text-xs md:text-sm text-blue-200">Eficiencia de clase mundial.</p>
                         </div>
                     </div>
                 </div>
             `,
             // SLIDE 8: ARQUITECTURA TÉCNICA (INFRA)
             `
-                <div class="w-full h-full p-16 flex flex-col justify-center bg-gray-900 text-white relative">
-                    <div class="absolute right-0 top-0 h-full w-1/2 color-azul-py opacity-10 transform skew-x-12"></div>
+                <div class="w-full h-full p-4 md:p-16 flex flex-col justify-center bg-gray-900 text-white relative overflow-auto">
+                    <div class="absolute right-0 top-0 h-full w-1/2 color-azul-py opacity-10 transform skew-x-12 hidden md:block"></div>
                     
-                    <h2 class="text-3xl font-bold mb-12 flex items-center gap-3">
-                        ${lucideIcon('database', 'w-6 h-6 text-rojo-py')} 8. Arquitectura y Tecnologías
+                    <h2 class="text-xl md:text-3xl font-bold mb-6 md:mb-12 flex items-center gap-3">
+                        ${lucideIcon('database', 'w-5 h-5 md:w-6 md:h-6 text-rojo-py')} 8. Arquitectura y Tecnologías
                     </h2>
 
-                    <div class="grid grid-cols-3 gap-8 z-10">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 z-10">
                         <div class="flex flex-col items-center text-center p-4 bg-white/5 rounded-lg border border-white/10">
-                            <div class="p-3 bg-red-500/20 rounded-full h-fit mb-3">${lucideIcon('server', 'w-6 h-6 text-rojo-py')}</div>
-                            <h4 class="font-bold text-lg">Backend (Servidores)</h4>
-                            <p class="text-slate-400 text-sm mt-1">AWS/Cloudflare para máxima escalabilidad y resiliencia ante tráfico masivo.</p>
+                            <div class="p-3 bg-red-500/20 rounded-full h-fit mb-3">${lucideIcon('server', 'w-5 h-5 md:w-6 md:h-6 text-rojo-py')}</div>
+                            <h4 class="font-bold text-base md:text-lg">Backend (Servidores)</h4>
+                            <p class="text-slate-400 text-xs md:text-sm mt-1">AWS/Cloudflare para máxima escalabilidad y resiliencia ante tráfico masivo.</p>
                         </div>
                         <div class="flex flex-col items-center text-center p-4 bg-white/5 rounded-lg border border-white/10">
-                            <div class="p-3 bg-blue-500/20 rounded-full h-fit mb-3">${lucideIcon('map-pin', 'w-6 h-6 text-azul-py')}</div>
-                            <h4 class="font-bold text-lg">Geolocalización</h4>
-                            <p class="text-slate-400 text-sm mt-1">Servicios de Mapbox/OSM optimizados para la cartografía de Asunción.</p>
+                            <div class="p-3 bg-blue-500/20 rounded-full h-fit mb-3">${lucideIcon('map-pin', 'w-5 h-5 md:w-6 md:h-6 text-azul-py')}</div>
+                            <h4 class="font-bold text-base md:text-lg">Geolocalización</h4>
+                            <p class="text-slate-400 text-xs md:text-sm mt-1">Servicios de Mapbox/OSM optimizados para la cartografía de Asunción.</p>
                         </div>
                         <div class="flex flex-col items-center text-center p-4 bg-white/5 rounded-lg border border-white/10">
-                            <div class="p-3 bg-green-500/20 rounded-full h-fit mb-3">${lucideIcon('zap', 'w-6 h-6 text-green-400')}</div>
-                            <h4 class="font-bold text-lg">Frontend (Velocidad)</h4>
-                            <p class="text-slate-400 text-sm mt-1">Desarrollo con React/Vue para una experiencia fluida y rápida (PWA).</p>
+                            <div class="p-3 bg-green-500/20 rounded-full h-fit mb-3">${lucideIcon('zap', 'w-5 h-5 md:w-6 md:h-6 text-green-400')}</div>
+                            <h4 class="font-bold text-base md:text-lg">Frontend (Velocidad)</h4>
+                            <p class="text-slate-400 text-xs md:text-sm mt-1">Desarrollo con React/Vue para una experiencia fluida y rápida (PWA).</p>
                         </div>
                     </div>
                 </div>
             `,
             // SLIDE 9: DATOS Y SEGURIDAD
             `
-                <div class="w-full h-full p-16 flex items-center bg-white">
-                    <div class="grid grid-cols-2 gap-12 w-full">
-                        <div class="space-y-6">
-                            <h2 class="text-4xl font-bold text-azul-py mb-4">9. Gobernanza del Dato</h2>
-                            <p class="text-lg text-slate-600 mb-6">
+                <div class="w-full h-full p-4 md:p-16 flex items-center bg-white overflow-auto">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12 w-full">
+                        <div class="space-y-4 md:space-y-6">
+                            <h2 class="text-2xl md:text-4xl font-bold text-azul-py mb-4">9. Gobernanza del Dato</h2>
+                            <p class="text-sm md:text-lg text-slate-600 mb-4 md:mb-6">
                                 La información es un activo municipal. El sistema asegura la integridad, privacidad y audibilidad de cada reporte.
                             </p>
                             
-                            <div class="flex items-center gap-4 bg-slate-50 p-4 rounded-lg border border-slate-200">
-                                <div class="p-2 bg-azul-py text-white rounded-full">${lucideIcon('lock', 'w-6 h-6')}</div>
+                            <div class="flex items-center gap-3 md:gap-4 bg-slate-50 p-3 md:p-4 rounded-lg border border-slate-200">
+                                <div class="p-2 bg-azul-py text-white rounded-full">${lucideIcon('lock', 'w-5 h-5 md:w-6 md:h-6')}</div>
                                 <div>
-                                    <h4 class="font-bold text-slate-800">Cifrado de PII</h4>
-                                    <p class="text-sm text-slate-600">Datos personales del ciudadano encriptados y protegidos (GDPR/ISO compliance).</p>
+                                    <h4 class="font-bold text-slate-800 text-sm md:text-base">Cifrado de PII</h4>
+                                    <p class="text-xs md:text-sm text-slate-600">Datos personales del ciudadano encriptados y protegidos (GDPR/ISO compliance).</p>
                                 </div>
                             </div>
-                            <div class="flex items-center gap-4 bg-slate-50 p-4 rounded-lg border border-slate-200">
-                                <div class="p-2 bg-rojo-py text-white rounded-full">${lucideIcon('file-text', 'w-6 h-6')}</div>
+                            <div class="flex items-center gap-3 md:gap-4 bg-slate-50 p-3 md:p-4 rounded-lg border border-slate-200">
+                                <div class="p-2 bg-rojo-py text-white rounded-full">${lucideIcon('file-text', 'w-5 h-5 md:w-6 md:h-6')}</div>
                                 <div>
-                                    <h4 class="font-bold text-slate-800">Trazabilidad Inmutable</h4>
-                                    <p class="text-sm text-slate-600">Cada cambio de estado es un registro auditado (Blockchain-like).</p>
+                                    <h4 class="font-bold text-slate-800 text-sm md:text-base">Trazabilidad Inmutable</h4>
+                                    <p class="text-xs md:text-sm text-slate-600">Cada cambio de estado es un registro auditado (Blockchain-like).</p>
                                 </div>
                             </div>
                         </div>
                         <div class="flex justify-center items-center">
-                            <img src="https://placehold.co/400x300/F0F4FF/0038A8?text=Diagrama+de+Flujo+de+Datos" class="rounded-xl shadow-xl" alt="Diagrama de Flujo de Datos">
+                            <img src="https://elemental.com.py/software-municipal/panel.jpg" class="rounded-xl shadow-xl max-w-full h-auto" alt="Diagrama de Flujo de Datos">
                         </div>
                     </div>
                 </div>
             `,
             // SLIDE 10: SOSTENIBILIDAD Y MANTENIMIENTO
             `
-                <div class="w-full h-full bg-slate-100 p-16 flex flex-col justify-center">
-                    <h2 class="text-4xl font-bold text-azul-py mb-4">10. Plan de Sostenibilidad a Largo Plazo</h2>
-                    <p class="text-lg text-slate-600 mb-10 max-w-4xl">
+                <div class="w-full h-full bg-slate-100 p-4 md:p-16 flex flex-col justify-center overflow-auto">
+                    <h2 class="text-2xl md:text-4xl font-bold text-azul-py mb-4">10. Plan de Sostenibilidad a Largo Plazo</h2>
+                    <p class="text-sm md:text-lg text-slate-600 mb-6 md:mb-10 max-w-4xl">
                         Un sistema que evoluciona con la ciudad y se mantiene operativo 24/7.
                     </p>
                     
-                    <div class="grid grid-cols-4 gap-6">
-                        <div class="bg-white p-5 rounded-xl shadow border-l-4 border-rojo-py flex flex-col items-center text-center">
-                            ${lucideIcon('settings', 'w-8 h-8 text-rojo-py mb-3')}
-                            <h3 class="font-bold text-lg text-slate-800">Mantenimiento Correctivo</h3>
-                            <p class="text-sm text-slate-600 mt-1">Corrección de errores en 48 horas (SLA).</p>
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-6">
+                        <div class="bg-white p-4 md:p-5 rounded-xl shadow border-l-4 border-rojo-py flex flex-col items-center text-center">
+                            ${lucideIcon('settings', 'w-6 h-6 md:w-8 md:h-8 text-rojo-py mb-3')}
+                            <h3 class="font-bold text-base md:text-lg text-slate-800">Mantenimiento Correctivo</h3>
+                            <p class="text-xs md:text-sm text-slate-600 mt-1">Corrección de errores en 48 horas (SLA).</p>
                         </div>
-                        <div class="bg-white p-5 rounded-xl shadow border-l-4 border-azul-py flex flex-col items-center text-center">
-                            ${lucideIcon('trending-up', 'w-8 h-8 text-azul-py mb-3')}
-                            <h3 class="font-bold text-lg text-slate-800">Mantenimiento Evolutivo</h3>
-                            <p class="text-sm text-slate-600 mt-1">Actualizaciones mensuales de seguridad y nuevas funcionalidades.</p>
+                        <div class="bg-white p-4 md:p-5 rounded-xl shadow border-l-4 border-azul-py flex flex-col items-center text-center">
+                            ${lucideIcon('trending-up', 'w-6 h-6 md:w-8 md:h-8 text-azul-py mb-3')}
+                            <h3 class="font-bold text-base md:text-lg text-slate-800">Mantenimiento Evolutivo</h3>
+                            <p class="text-xs md:text-sm text-slate-600 mt-1">Actualizaciones mensuales de seguridad y nuevas funcionalidades.</p>
                         </div>
-                        <div class="bg-white p-5 rounded-xl shadow border-l-4 border-slate-800 flex flex-col items-center text-center">
-                            ${lucideIcon('clock', 'w-8 h-8 text-slate-800 mb-3')}
-                            <h3 class="font-bold text-lg text-slate-800">Garantía de Uptime</h3>
-                            <p class="text-sm text-slate-600 mt-1">Garantía de operatividad del 99.9%.</p>
+                        <div class="bg-white p-4 md:p-5 rounded-xl shadow border-l-4 border-slate-800 flex flex-col items-center text-center">
+                            ${lucideIcon('clock', 'w-6 h-6 md:w-8 md:h-8 text-slate-800 mb-3')}
+                            <h3 class="font-bold text-base md:text-lg text-slate-800">Garantía de Uptime</h3>
+                            <p class="text-xs md:text-sm text-slate-600 mt-1">Garantía de operatividad del 99.9%.</p>
                         </div>
-                        <div class="bg-white p-5 rounded-xl shadow border-l-4 border-green-600 flex flex-col items-center text-center">
-                            ${lucideIcon('users', 'w-8 h-8 text-green-600 mb-3')}
-                            <h3 class="font-bold text-lg text-slate-800">Transferencia Tecnológica</h3>
-                            <p class="text-sm text-slate-600 mt-1">Código abierto para que el municipio pueda tomar control futuro.</p>
+                        <div class="bg-white p-4 md:p-5 rounded-xl shadow border-l-4 border-green-600 flex flex-col items-center text-center">
+                            ${lucideIcon('users', 'w-6 h-6 md:w-8 md:h-8 text-green-600 mb-3')}
+                            <h3 class="font-bold text-base md:text-lg text-slate-800">Transferencia Tecnológica</h3>
+                            <p class="text-xs md:text-sm text-slate-600 mt-1">Código abierto para que el municipio pueda tomar control futuro.</p>
                         </div>
                     </div>
                 </div>
             `,
             // SLIDE 11: CAPACITACIÓN Y ADOPCIÓN
             `
-                <div class="w-full h-full p-16 flex items-center bg-white">
-                    <div class="grid grid-cols-2 gap-12 w-full">
-                        <div class="space-y-6">
-                            <h2 class="text-4xl font-bold text-azul-py mb-4">11. Plan de Adopción y Capacitación</h2>
-                            <p class="text-lg text-slate-600 mb-6">
+                <div class="w-full h-full p-4 md:p-16 flex items-center bg-white overflow-auto">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12 w-full">
+                        <div class="space-y-4 md:space-y-6">
+                            <h2 class="text-2xl md:text-4xl font-bold text-azul-py mb-4">11. Plan de Adopción y Capacitación</h2>
+                            <p class="text-sm md:text-lg text-slate-600 mb-4 md:mb-6">
                                 El mejor sistema es inútil si los usuarios no lo adoptan. Garantizamos un proceso de transición suave.
                             </p>
                             
-                            <ul class="space-y-4">
-                                <li class="flex items-start gap-4">
-                                    <span class="text-rojo-py font-black text-xl">A.</span>
-                                    <div><p class="font-bold text-slate-800">Capacitación a Liderazgo:</p><p class="text-sm text-slate-600">Enfoque en métricas, KPIs y toma de decisiones (Intendencia/Direcciones).</p></div>
+                            <ul class="space-y-3 md:space-y-4">
+                                <li class="flex items-start gap-3 md:gap-4">
+                                    <span class="text-rojo-py font-black text-lg md:text-xl">A.</span>
+                                    <div><p class="font-bold text-slate-800 text-sm md:text-base">Capacitación a Liderazgo:</p><p class="text-xs md:text-sm text-slate-600">Enfoque en métricas, KPIs y toma de decisiones (Intendencia/Direcciones).</p></div>
                                 </li>
-                                <li class="flex items-start gap-4">
-                                    <span class="text-rojo-py font-black text-xl">B.</span>
-                                    <div><p class="font-bold text-slate-800">Capacitación Operacional:</p><p class="text-sm text-slate-600">Uso diario del App Mobile para Cuadrillas y Asignadores (Técnico).</p></div>
+                                <li class="flex items-start gap-3 md:gap-4">
+                                    <span class="text-rojo-py font-black text-lg md:text-xl">B.</span>
+                                    <div><p class="font-bold text-slate-800 text-sm md:text-base">Capacitación Operacional:</p><p class="text-xs md:text-sm text-slate-600">Uso diario del App Mobile para Cuadrillas y Asignadores (Técnico).</p></div>
                                 </li>
-                                <li class="flex items-start gap-4">
-                                    <span class="text-rojo-py font-black text-xl">C.</span>
-                                    <div><p class="font-bold text-slate-800">Material de Soporte:</p><p class="text-sm text-slate-600">Manuales, videos tutoriales y línea de soporte dedicada por 6 meses.</p></div>
+                                <li class="flex items-start gap-3 md:gap-4">
+                                    <span class="text-rojo-py font-black text-lg md:text-xl">C.</span>
+                                    <div><p class="font-bold text-slate-800 text-sm md:text-base">Material de Soporte:</p><p class="text-xs md:text-sm text-slate-600">Manuales, videos tutoriales y línea de soporte dedicada por 6 meses.</p></div>
                                 </li>
                             </ul>
                         </div>
                         <div class="flex justify-center items-center">
-                             <img src="https://placehold.co/400x300/F0F4FF/0038A8?text=Diagrama+de+Capacitación" class="rounded-xl shadow-xl" alt="Diagrama de Capacitación">
+                             <img src="https://elemental.com.py/software-municipal/cel.png" class="rounded-xl shadow-xl max-w-full h-auto" alt="Diagrama de Capacitación">
                         </div>
                     </div>
                 </div>
             `,
             // SLIDE 12: IMPACTO SOCIAL Y POLÍTICO
             `
-                <div class="w-full h-full bg-cover bg-center flex relative" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Flag_of_Asunci%C3%B3n.svg/1200px-Flag_of_Asunci%C3%B3n.svg.png');">
+                <div class="w-full h-full bg-cover bg-center flex relative overflow-auto" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Flag_of_Asunci%C3%B3n.svg/1200px-Flag_of_Asunci%C3%B3n.svg.png');">
                     <div class="absolute inset-0 bg-white/95"></div>
-                    <div class="relative z-10 w-full p-16 flex flex-col justify-center">
-                        <h2 class="text-4xl font-bold text-azul-py mb-12 text-center">12. Beneficios Políticos y Legado</h2>
+                    <div class="relative z-10 w-full p-4 md:p-16 flex flex-col justify-center">
+                        <h2 class="text-2xl md:text-4xl font-bold text-azul-py mb-6 md:mb-12 text-center">12. Beneficios Políticos y Legado</h2>
                         
-                        <div class="grid grid-cols-4 gap-8">
+                        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-8">
                             <div class="flex flex-col items-center text-center">
-                                <span class="text-5xl mb-4 text-rojo-py">🏛️</span>
-                                <h3 class="text-xl font-bold text-slate-800 mb-2">Transparencia Total</h3>
-                                <p class="text-slate-600 text-sm">El ciudadano es testigo del proceso, reduciendo la desconfianza.</p>
+                                <span class="text-4xl md:text-5xl mb-3 md:mb-4 text-rojo-py">🏛️</span>
+                                <h3 class="text-lg md:text-xl font-bold text-slate-800 mb-2">Transparencia Total</h3>
+                                <p class="text-slate-600 text-xs md:text-sm">El ciudadano es testigo del proceso, reduciendo la desconfianza.</p>
                             </div>
                             <div class="flex flex-col items-center text-center">
-                                <span class="text-5xl mb-4 text-azul-py">📉</span>
-                                <h3 class="text-xl font-bold text-slate-800 mb-2">Reducción de Gastos</h3>
-                                <p class="text-slate-600 text-sm">Ruteo eficiente ahorra combustible y horas extra.</p>
+                                <span class="text-4xl md:text-5xl mb-3 md:mb-4 text-azul-py">📉</span>
+                                <h3 class="text-lg md:text-xl font-bold text-slate-800 mb-2">Reducción de Gastos</h3>
+                                <p class="text-slate-600 text-xs md:text-sm">Ruteo eficiente ahorra combustible y horas extra.</p>
                             </div>
                             <div class="flex flex-col items-center text-center">
-                                <span class="text-5xl mb-4 text-slate-800">⭐</span>
-                                <h3 class="text-xl font-bold text-slate-800 mb-2">Mejora de Imagen</h3>
-                                <p class="text-slate-600 text-sm">El municipio se posiciona como una gestión moderna e innovadora.</p>
+                                <span class="text-4xl md:text-5xl mb-3 md:mb-4 text-slate-800">⭐</span>
+                                <h3 class="text-lg md:text-xl font-bold text-slate-800 mb-2">Mejora de Imagen</h3>
+                                <p class="text-slate-600 text-xs md:text-sm">El municipio se posiciona como una gestión moderna e innovadora.</p>
                             </div>
                             <div class="flex flex-col items-center text-center">
-                                <span class="text-5xl mb-4 text-green-600">🏆</span>
-                                <h3 class="text-xl font-bold text-slate-800 mb-2">Capital Político</h3>
-                                <p class="text-slate-600 text-sm">Un activo digital que será el sello de esta administración.</p>
+                                <span class="text-4xl md:text-5xl mb-3 md:mb-4 text-green-600">🏆</span>
+                                <h3 class="text-lg md:text-xl font-bold text-slate-800 mb-2">Capital Político</h3>
+                                <p class="text-slate-600 text-xs md:text-sm">Un activo digital que será el sello de esta administración.</p>
                             </div>
                         </div>
                     </div>
@@ -605,77 +788,77 @@
             `,
             // SLIDE 13: ROADMAP FUTURO (FASE II)
             `
-                <div class="w-full h-full p-16 flex flex-col justify-center bg-slate-50">
-                    <h2 class="text-4xl font-bold text-azul-py mb-4">13. Roadmap Futuro (Fase II)</h2>
-                    <p class="text-lg text-slate-600 mb-10 max-w-4xl">
+                <div class="w-full h-full p-4 md:p-16 flex flex-col justify-center bg-slate-50 overflow-auto">
+                    <h2 class="text-2xl md:text-4xl font-bold text-azul-py mb-4">13. Roadmap Futuro (Fase II)</h2>
+                    <p class="text-sm md:text-lg text-slate-600 mb-6 md:mb-10 max-w-4xl">
                         Una vez estabilizado el sistema de reclamos, se puede expandir a otras áreas de servicio.
                     </p>
                     
-                    <div class="grid grid-cols-3 gap-6">
-                        <div class="bg-white p-6 rounded-xl shadow border-l-4 border-slate-400">
-                            <h3 class="font-bold text-lg text-slate-800 flex items-center gap-2">${lucideIcon('users', 'w-5 h-5 text-slate-600')} Participación Ciudadana</h3>
-                            <p class="text-sm text-slate-600 mt-1">Módulo para encuestas y votación de presupuesto participativo.</p>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+                        <div class="bg-white p-4 md:p-6 rounded-xl shadow border-l-4 border-slate-400">
+                            <h3 class="font-bold text-base md:text-lg text-slate-800 flex items-center gap-2">${lucideIcon('users', 'w-4 h-4 md:w-5 md:h-5 text-slate-600')} Participación Ciudadana</h3>
+                            <p class="text-xs md:text-sm text-slate-600 mt-1">Módulo para encuestas y votación de presupuesto participativo.</p>
                         </div>
-                        <div class="bg-white p-6 rounded-xl shadow border-l-4 border-slate-400">
-                            <h3 class="font-bold text-lg text-slate-800 flex items-center gap-2">${lucideIcon('zap', 'w-5 h-5 text-slate-600')} Notificaciones Proactivas</h3>
-                            <p class="text-sm text-slate-600 mt-1">Alertas automáticas por corte de energía, agua o desvío de tráfico.</p>
+                        <div class="bg-white p-4 md:p-6 rounded-xl shadow border-l-4 border-slate-400">
+                            <h3 class="font-bold text-base md:text-lg text-slate-800 flex items-center gap-2">${lucideIcon('zap', 'w-4 h-4 md:w-5 md:h-5 text-slate-600')} Notificaciones Proactivas</h3>
+                            <p class="text-xs md:text-sm text-slate-600 mt-1">Alertas automáticas por corte de energía, agua o desvío de tráfico.</p>
                         </div>
-                        <div class="bg-white p-6 rounded-xl shadow border-l-4 border-slate-400">
-                            <h3 class="font-bold text-lg text-slate-800 flex items-center gap-2">${lucideIcon('database', 'w-5 h-5 text-slate-600')} Integración con Catastro</h3>
-                            <p class="text-sm text-slate-600 mt-1">Conexión con el sistema de impuestos y propiedades.</p>
+                        <div class="bg-white p-4 md:p-6 rounded-xl shadow border-l-4 border-slate-400">
+                            <h3 class="font-bold text-base md:text-lg text-slate-800 flex items-center gap-2">${lucideIcon('database', 'w-4 h-4 md:w-5 md:h-5 text-slate-600')} Integración con Catastro</h3>
+                            <p class="text-xs md:text-sm text-slate-600 mt-1">Conexión con el sistema de impuestos y propiedades.</p>
                         </div>
                     </div>
                 </div>
             `,
             // SLIDE 14: PROPUESTA DE INVERSIÓN FINAL
             `
-                <div class="w-full h-full p-12 bg-gray-900 flex flex-col items-center justify-center">
-                    <div class="text-center mb-10">
-                        <h2 class="text-3xl font-black text-white uppercase tracking-tight">14. Propuesta de Inversión y Retorno</h2>
-                        <div class="w-24 h-1 color-rojo-py mx-auto mt-4"></div>
+                <div class="w-full h-full p-4 md:p-12 bg-gray-900 flex flex-col items-center justify-center overflow-auto">
+                    <div class="text-center mb-6 md:mb-10">
+                        <h2 class="text-xl md:text-3xl font-black text-white uppercase tracking-tight">14. Propuesta de Inversión y Retorno</h2>
+                        <div class="w-16 md:w-24 h-1 color-rojo-py mx-auto mt-4"></div>
                     </div>
 
-                    <div class="flex justify-center gap-8 w-full max-w-5xl">
+                    <div class="flex flex-col md:flex-row justify-center gap-4 md:gap-8 w-full max-w-5xl">
                         
                         <!-- Bloque Implementación -->
-                        <div class="w-1/2 border border-slate-700 rounded-xl p-8 flex flex-col bg-white/5 text-white shadow-xl">
+                        <div class="w-full md:w-1/2 border border-slate-700 rounded-xl p-4 md:p-8 flex flex-col bg-white/5 text-white shadow-xl">
                             <div class="mb-4">
                                 <span class="text-xs font-bold text-red-400 uppercase tracking-wider">Desarrollo e Implementación</span>
                             </div>
                             <div class="flex items-baseline gap-1 mb-2">
-                                <span class="text-5xl font-black text-white">Gs. 95.000.000</span>
-                                <span class="text-sm text-slate-400 font-medium">+ IVA</span>
+                                <span class="text-3xl md:text-5xl font-black text-white">Gs. 95.000.000</span>
+                                <span class="text-xs md:text-sm text-slate-400 font-medium">+ IVA</span>
                             </div>
-                            <p class="text-sm text-red-300 italic mb-6 border-b border-slate-700 pb-4">Inversión Única para la puesta en marcha del Ecosistema (Fase I)</p>
+                            <p class="text-xs md:text-sm text-red-300 italic mb-4 md:mb-6 border-b border-slate-700 pb-4">Inversión Única para la puesta en marcha del Ecosistema.<br> (Fase I)</p>
                             
-                            <ul class="space-y-3 flex-1 pt-4">
-                                <li class="flex gap-3 text-sm text-slate-200 items-start">${lucideIcon('check-circle-2', 'w-4 h-4 text-green-400 mt-0.5')} Módulos Ciudadano, Operativo y Control.</li>
-                                <li class="flex gap-3 text-sm text-slate-200 items-start">${lucideIcon('check-circle-2', 'w-4 h-4 text-green-400 mt-0.5')} 3 Jornadas de Capacitación Técnica.</li>
-                                <li class="flex gap-3 text-sm text-slate-200 items-start">${lucideIcon('check-circle-2', 'w-4 h-4 text-green-400 mt-0.5')} Configuración de Mapas y Geozonas.</li>
+                            <ul class="space-y-2 md:space-y-3 flex-1 pt-4">
+                                <li class="flex gap-2 md:gap-3 text-xs md:text-sm text-slate-200 items-start">${lucideIcon('check-circle-2', 'w-3 h-3 md:w-4 md:h-4 text-green-400 mt-0.5 flex-shrink-0')} Módulos Ciudadano, Operativo y Control.</li>
+                                <li class="flex gap-2 md:gap-3 text-xs md:text-sm text-slate-200 items-start">${lucideIcon('check-circle-2', 'w-3 h-3 md:w-4 md:h-4 text-green-400 mt-0.5 flex-shrink-0')} 3 Jornadas de Capacitación Técnica.</li>
+                                <li class="flex gap-2 md:gap-3 text-xs md:text-sm text-slate-200 items-start">${lucideIcon('check-circle-2', 'w-3 h-3 md:w-4 md:h-4 text-green-400 mt-0.5 flex-shrink-0')} Configuración de Mapas y Geozonas.</li>
                             </ul>
                         </div>
 
                         <!-- Bloque Soporte (Destacado) -->
-                        <div class="w-1/2 color-azul-py text-white rounded-xl p-8 flex flex-col shadow-2xl relative transform scale-100 ring-4 ring-white/50">
-                            <div class="absolute top-0 right-0 color-rojo-py text-white text-[10px] font-bold px-4 py-1 rounded-bl-lg uppercase shadow-lg">
+                        <div class="w-full md:w-1/2 color-azul-py text-white rounded-xl p-4 md:p-8 flex flex-col shadow-2xl relative transform scale-100 ring-2 md:ring-4 ring-white/50">
+                            <div class="absolute top-0 right-0 color-rojo-py text-white text-[9px] md:text-[10px] font-bold px-3 md:px-4 py-1 rounded-bl-lg uppercase shadow-lg">
                                 SOPORTE VITAL
                             </div>
                             <div class="mb-4">
                                 <span class="text-xs font-bold text-blue-200 uppercase tracking-wider">Soporte & Mantenimiento</span>
                             </div>
                             <div class="flex items-baseline gap-1 mb-2">
-                                <span class="text-5xl font-black text-white">Gs. 14.000.000</span>
-                                <span class="text-sm text-blue-200 font-medium">/ mes + IVA</span>
+                                <span class="text-3xl md:text-5xl font-black text-white">Gs. 14.000.000</span>
+                                <span class="text-xs md:text-sm text-blue-200 font-medium">/ mes + IVA</span>
                             </div>
-                            <p class="text-sm text-blue-200 italic mb-6 border-b border-blue-800 pb-4">Costo de operación de servidores, seguridad y soporte.</p>
+                            <p class="text-xs md:text-sm text-blue-200 italic mb-4 md:mb-6 border-b border-blue-800 pb-4">Costo de operación de servidores, seguridad y soporte.</p>
                             
-                            <ul class="space-y-3 flex-1 pt-4">
-                                <li class="flex gap-3 text-sm text-blue-50 items-start">${lucideIcon('shield', 'w-4 h-4 text-rojo-py mt-0.5')} Hosting, CDN y Base de Datos.</li>
-                                <li class="flex gap-3 text-sm text-blue-50 items-start">${lucideIcon('shield', 'w-4 h-4 text-rojo-py mt-0.5')} Monitoreo de ciberseguridad 24/7.</li>
-                                <li class="flex gap-3 text-sm text-blue-50 items-start">${lucideIcon('shield', 'w-4 h-4 text-rojo-py mt-0.5')} Desarrollo de mejoras evolutivas menores.</li>
+                            <ul class="space-y-2 md:space-y-3 flex-1 pt-4">
+                                <li class="flex gap-2 md:gap-3 text-xs md:text-sm text-blue-50 items-start">${lucideIcon('shield', 'w-3 h-3 md:w-4 md:h-4 text-rojo-py mt-0.5 flex-shrink-0')} Hosting, CDN y Base de Datos.</li>
+                                <li class="flex gap-2 md:gap-3 text-xs md:text-sm text-blue-50 items-start">${lucideIcon('shield', 'w-3 h-3 md:w-4 md:h-4 text-rojo-py mt-0.5 flex-shrink-0')} Monitoreo de ciberseguridad 24/7.</li>
+                                <li class="flex gap-2 md:gap-3 text-xs md:text-sm text-blue-50 items-start">${lucideIcon('shield', 'w-3 h-3 md:w-4 md:h-4 text-rojo-py mt-0.5 flex-shrink-0')} Desarrollo de mejoras evolutivas menores.</li>
                             </ul>
 
-                            <button class="mt-8 w-full bg-white text-azul-py hover:bg-slate-100 font-bold py-3 rounded-xl transition-colors text-sm uppercase tracking-wide shadow-lg">
+                            <button class="mt-6 md:mt-8 w-full bg-white text-azul-py hover:bg-slate-100 font-bold py-2 md:py-3 rounded-xl transition-colors text-xs md:text-sm uppercase tracking-wide shadow-lg">
                                 SOLICITAR REUNIÓN DE CIERRE
                             </button>
                         </div>
@@ -684,19 +867,19 @@
             `,
             // SLIDE 15: CIERRE
             `
-                <div class="w-full h-full flex flex-col justify-center items-center relative overflow-hidden bg-slate-50">
+                <div class="w-full h-full flex flex-col justify-center items-center relative overflow-hidden bg-slate-50 p-4">
                     <div class="z-20 text-center max-w-4xl animate-fade-in space-y-4">
-                        <h1 class="text-7xl font-black text-azul-py leading-tight">
+                        <h1 class="text-4xl md:text-7xl font-black text-azul-py leading-tight">
                             GRACIAS
                         </h1>
-                        <p class="text-2xl text-slate-600 font-medium pt-4 max-w-3xl mx-auto border-t border-slate-300 mt-6">
+                        <p class="text-base md:text-2xl text-slate-600 font-medium pt-4 max-w-3xl mx-auto border-t border-slate-300 mt-6">
                             La modernización no es un gasto, es la inversión más rentable en confianza ciudadana y eficiencia gubernamental.
                         </p>
                         
-                        <div class="mt-12 text-lg text-rojo-py font-bold flex flex-col items-center">
+                        <div class="mt-8 md:mt-12 text-sm md:text-lg text-rojo-py font-bold flex flex-col items-center">
                             <p>Equipo de Tecnología e Innovación</p>
-                            <p class="text-sm text-slate-500 mt-2">contacto@nuestraempresa.com.py</p>
-                            <p class="text-sm text-slate-500">Tel: +595 21 411 000</p>
+                            <p class="text-xs md:text-sm text-slate-500 mt-2">contacto@nuestraempresa.com.py</p>
+                            <p class="text-xs md:text-sm text-slate-500">Tel: +595 21 411 000</p>
                         </div>
                     </div>
                     
@@ -713,7 +896,7 @@
 
             const pageCounter = document.getElementById('page-counter');
             if (pageCounter) {
-                pageCounter.textContent = `Diapositiva ${currentSlide + 1} de ${totalSlides}`;
+                pageCounter.textContent = `${currentSlide + 1}/${totalSlides}`;
             }
 
             document.getElementById('prev-button').disabled = currentSlide === 0;
@@ -724,10 +907,11 @@
 
             if (nextBtn) {
                 nextBtn.classList.toggle('opacity-50', currentSlide === totalSlides - 1);
-                nextBtn.classList.toggle('bg-blue-900', currentSlide !== totalSlides - 1);
+                nextBtn.classList.toggle('cursor-not-allowed', currentSlide === totalSlides - 1);
             }
             if (prevBtn) {
                 prevBtn.classList.toggle('opacity-30', currentSlide === 0);
+                prevBtn.classList.toggle('cursor-not-allowed', currentSlide === 0);
             }
         }
 
@@ -757,30 +941,52 @@
                 if (e.key === 'ArrowRight') nextSlide();
                 if (e.key === 'ArrowLeft') prevSlide();
             });
+
+            // Touch gestures para mobile
+            let touchStartX = 0;
+            let touchEndX = 0;
+            
+            document.addEventListener('touchstart', e => {
+                touchStartX = e.changedTouches[0].screenX;
+            });
+            
+            document.addEventListener('touchend', e => {
+                touchEndX = e.changedTouches[0].screenX;
+                handleSwipe();
+            });
+            
+            function handleSwipe() {
+                if (touchEndX < touchStartX - 50) nextSlide();
+                if (touchEndX > touchStartX + 50) prevSlide();
+            }
         };
     </script>
 </head>
+
 <body class="w-full h-screen overflow-hidden flex flex-col text-slate-800">
-    
+
     <!-- CINTILLO INSTITUCIONAL OFICIAL -->
-    <header class="h-3 w-full flex shadow-sm z-50">
+    <header class="h-2 md:h-3 w-full flex shadow-sm z-50">
         <div class="w-1/3 h-full color-rojo-py"></div>
         <div class="w-1/3 h-full bg-white"></div>
         <div class="w-1/3 h-full color-azul-py"></div>
     </header>
 
     <!-- Area Principal de Diapositivas -->
-    <div class="flex-1 relative flex items-center justify-center p-4 md:p-8 bg-[url('https://www.transparenttextures.com/patterns/concrete-wall.png')]">
-        
-        <div class="w-full max-w-6xl aspect-video bg-white shadow-2xl overflow-hidden relative border border-slate-300 flex flex-col">
-            
+    <div
+        class="flex-1 relative flex items-center justify-center p-2 md:p-4 lg:p-8 bg-[url('https://www.transparenttextures.com/patterns/concrete-wall.png')]">
+
+        <div
+            class="w-full max-w-6xl aspect-video bg-white shadow-2xl overflow-hidden relative border border-slate-300 flex flex-col">
+
             <!-- Logo Watermark Global -->
-            <div class="absolute top-6 left-8 z-20 opacity-90 flex items-center gap-4">
+            <div class="absolute top-2 md:top-6 left-2 md:left-8 z-20 opacity-90 flex items-center gap-2 md:gap-4">
                 <!-- Usar placeholder para el logo municipal -->
-                <img src="https://placehold.co/100x64/FFFFFF/0038A8?text=Muni+Logo" onerror="this.src='https://placehold.co/100x64/FFFFFF/0038A8?text=Muni+Logo'" alt="Muni Logo" class="h-16 w-auto drop-shadow-sm" />
-                <div class="h-8 w-[1px] bg-slate-400"></div>
-                <div>
-                    <p class="text-[10px] font-bold text-slate-500 uppercase tracking-widest leading-tight">Dirección de<br/>Tecnología</p>
+                <img src="https://www.asuncion.gov.py/wp-content/uploads/2025/09/cropped-logo-ultimo-02-scaled-1-2048x821.png" onerror="this.src='https://www.asuncion.gov.py/wp-content/uploads/2025/09/cropped-logo-ultimo-02-scaled-1-2048x821.png'" alt="Muni Logo" class="h-8 md:h-16 w-auto drop-shadow-sm" />
+                <div class="h-4 md:h-8 w-[1px] bg-slate-400 hidden md:block"></div>
+                <div class="hidden md:block">
+                    <p class="text-[10px] font-bold text-slate-500 uppercase tracking-widest leading-tight">Gestión
+                        de<br/>Municipal</p>
                 </div>
             </div>
 
@@ -788,31 +994,34 @@
             <div id="slide-container" class="w-full h-full">
                 <!-- Contenido de la diapositiva se inyecta aquí con JS -->
             </div>
-            
+
         </div>
     </div>
 
     <!-- FOOTER NAVEGACIÓN -->
-    <div class="h-16 bg-white border-t border-slate-200 flex items-center justify-between px-8 shadow-inner z-50">
-        <div class="text-slate-400 font-bold text-xs uppercase tracking-widest">
-            Municipalidad de Asunción | Propuesta Técnica y Ejecutiva
+    <div
+        class="h-12 md:h-16 bg-white border-t border-slate-200 flex items-center justify-between px-2 md:px-8 shadow-inner z-50">
+        <div class="text-slate-400 font-bold text-[10px] md:text-xs uppercase tracking-widest hidden md:block">
+            Municipalidad de Asunción | Propuesta Técnica
         </div>
-        <div class="flex gap-4 items-center">
-            <span id="page-counter" class="text-xs font-bold text-slate-400 mr-4">Diapositiva 1 de 15</span>
-            <button 
+        <div class="flex gap-2 md:gap-4 items-center w-full md:w-auto justify-between md:justify-end">
+            <span id="page-counter" class="text-xs md:text-sm font-bold text-slate-400 mr-2 md:mr-4">1/15</span>
+            <button
                 id="prev-button"
-                class="p-2 rounded hover:bg-slate-100 transition-all opacity-30"
-                disabled
+                class="p-2 rounded hover:bg-slate-100 transition-all opacity-30 disabled:cursor-not-allowed"
+                aria-label="Diapositiva anterior"
             >
-                ${lucideIcon('chevron-left', 'w-6 h-6 text-azul-py')}
+                <svg class="w-5 h-5 md:w-6 md:h-6 text-azul-py" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
             </button>
-            <button 
+            <button
                 id="next-button"
-                class="p-2 rounded color-azul-py text-white hover:bg-blue-900 transition-all shadow-md"
+                class="p-2 rounded color-azul-py text-white hover:bg-blue-900 transition-all shadow-md disabled:cursor-not-allowed"
+                aria-label="Siguiente diapositiva"
             >
-                ${lucideIcon('chevron-right', 'w-6 h-6')}
+                <svg class="w-5 h-5 md:w-6 md:h-6" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
             </button>
         </div>
     </div>
 </body>
+
 </html>
